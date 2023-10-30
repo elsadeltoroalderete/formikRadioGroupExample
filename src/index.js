@@ -4,10 +4,10 @@ import { Formik, Field, Form } from 'formik';
 
 const Example = () => (
   <div>
-    <h1>Sign Up</h1>
+    <h1>Cookie Management</h1>
     <Formik
       initialValues={{
-        picked: '',
+        option: '',
       }}
       onSubmit={async (values) => {
         await new Promise((r) => setTimeout(r, 500));
@@ -19,14 +19,18 @@ const Example = () => (
           <div id="my-radio-group">Picked</div>
           <div role="group" aria-labelledby="my-radio-group">
             <label>
-              <Field type="radio" name="picked" value="One" />
+              <Field type="radio" name="accept-all" value="Accept all" />
               One
             </label>
             <label>
-              <Field type="radio" name="picked" value="Two" />
+              <Field type="radio" name="deny-all" value="Deny All" />
               Two
             </label>
-            <div>Picked: {values.picked}</div>
+            <label>
+              <Field type="radio" name="necessary-only" value="Necessary Only" />
+              Three
+            </label>
+            <div>option: {values.option}</div>
           </div>
 
           <button type="submit">Submit</button>
